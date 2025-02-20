@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const historyRoutes = require("./routes/history.routes");
 const matriculaRoutes = require("./routes/matricula.routes");
 const authRoutes = require("./routes/auth.routes")
+const bitacoraRoutes = require("./routes/bitacora.routes")
 
 const app = express();
 
@@ -15,8 +16,9 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 // Rutas
-app.use("/api/historial", historyRoutes);
-app.use("/api/matricula", matriculaRoutes);
+app.use("/api", historyRoutes);
+app.use("/api", matriculaRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api", bitacoraRoutes);
 
 module.exports = app;

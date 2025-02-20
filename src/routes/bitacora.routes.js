@@ -1,5 +1,5 @@
 const express = require("express");
-const matricula = require("../controllers/matricula.controller");
+const bitacora = require("../models/bitacora.model");
 const authMiddleware = require("../middleware/auth.middleware");
 
 
@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 
-router.get("/listadoestudiantes/:cuatri", matricula.getByCuatri);
+router.post("/bitacora", bitacora.insert);
 
 
 module.exports = router;
