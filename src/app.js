@@ -15,7 +15,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 // Rutas
-app.use("/api/historial", historyRoutes);
+app.use("/api", historyRoutes);
 app.use("/api/matricula", matriculaRoutes);
 app.use("/api/auth", authRoutes);
 
