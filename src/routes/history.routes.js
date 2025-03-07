@@ -7,7 +7,7 @@ const History = require("../models/history.model");
 
 const router = express.Router();
 
-router.get("/historialacademico/:tipo/:identificacion", async (req, res) => {
+router.get("/historialacademico/:tipo/:identificacion", authMiddleware, async (req, res) => {
     try {
         const { tipo, identificacion } = req.params;
         const historial = await History.getByIdentificacion(tipo, identificacion);
