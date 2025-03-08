@@ -38,6 +38,6 @@ module.exports = async (req, res, next) => {
     return res.status(401).json({ message: "No se pudo refrescar el token." });
 
   } catch (error) {
-    return res.status(401).json({ message: "No autorizado." });
+    return res.status(401).json({ message: "No autorizado. error:", error });
   }
 };
