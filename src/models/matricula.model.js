@@ -11,7 +11,7 @@ const Matricula = {
         .input("periodo", sql.VarChar, periodo)
         .query("select identificacion, TipoIdentificacion, NombreCompleto, Carrera, Curso, Grupo from Matricula where Cuatrimestre = @cuatri and periodo = @periodo");
 
-      const matriculaData = result.recordset[0] || null;
+      const matriculaData = result.recordset || null;
 
       if (matriculaData) {
         // Aquí definimos el ID del usuario como un valor fijo (ejemplo: 1)
