@@ -9,7 +9,7 @@ const Historial = {
         .request()
         .input("tipo", sql.VarChar, tipo)
         .input("identificacion", sql.VarChar, identificacion)
-        .query("SELECT identificacion, TipoIdentificacion, NombreCompleto, Carrera, Curso, Grupo FROM Matricula WHERE TipoIdentificacion = @tipo AND identificacion = @identificacion");
+        .query("SELECT CodigoCurso, NombreCurso, PromedioObtenido FROM PromedioEstudiante WHERE TipoIdentificacion = @tipo AND IdentificacionEstudiante = @identificacion");
 
       const historialData = result.recordset || null;
 
@@ -18,7 +18,7 @@ const Historial = {
         const id_usuarioi = 1;  // El ID del usuario está "quemado" en el código
 
         // Llamar a la función de Bitacora para registrar la acción
-        const descripcion = `Se ha consultado el historial para ${historialData[0].NombreCompleto}`;
+        const descripcion = `Se ha consultado el historial academico`;
         const fecha_bitacora = new Date();  // Obtener la fecha actual
 
         await Bitacora.insert(fecha_bitacora, id_usuarioi, descripcion);  // Registrar en la bitácora
@@ -28,6 +28,7 @@ const Historial = {
 
       return historialData;
     } catch (error) {
+      
       console.error('Error al obtener los datos del historial o registrar en la bitácora:', error);
       throw error;
     }

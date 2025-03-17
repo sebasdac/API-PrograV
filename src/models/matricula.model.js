@@ -2,13 +2,14 @@ const { sql, poolPromise } = require("../config/database");
 const Bitacora = require('./bitacora.model');  // Asegúrate de importar la API de la bitácora
 
 const Matricula = {
-  getByCuatri: async (cuatri) => {
+  getByCuatri: async (cuatri, periodo) => {
     try {
       const pool = await poolPromise;
       const result = await pool
         .request()
         .input("cuatri", sql.Int, cuatri)
-        .query("select identificacion, TipoIdentificacion, NombreCompleto, Carrera, Curso, Grupo from Matricula where Cuatrimestre = @cuatri");
+        .input("periodo", sql.VarChar, periodo)
+        .query("select identificacion, TipoIdentificacion, NombreCompleto, Carrera, Curso, Grupo from Matricula where Cuatrimestre = @cuatri and periodo = @periodo");
 
       const matriculaData = result.recordset[0] || null;
 
