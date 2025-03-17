@@ -4,6 +4,9 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const historyRoutes = require("./routes/history.routes");
 const matriculaRoutes = require("./routes/matricula.routes");
+const bitacoraRoutes = require("./routes/bitacora.routes")
+
+
 
 
 const app = express();
@@ -16,7 +19,9 @@ app.use(morgan("dev"));
 
 // Rutas
 app.use("/api", historyRoutes);
+app.use("/api", bitacoraRoutes);
 app.use("/api/matricula", matriculaRoutes);
+
 
 
 module.exports = app;
