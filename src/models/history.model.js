@@ -1,7 +1,8 @@
 const { sql, poolPromise } = require("../config/database");
 const Bitacora = require('./bitacora.model');  // Asegúrate de importar la API de la bitácora
 
-const Historial = {
+
+const History = {
   getByIdentificacion: async (tipo, identificacion) => {
     try {
       const pool = await poolPromise;
@@ -32,7 +33,7 @@ const Historial = {
       console.error('Error al obtener los datos del historial o registrar en la bitácora:', error);
       throw error;
     }
-  },
+
 };
 
-module.exports = Historial;
+module.exports = History;
