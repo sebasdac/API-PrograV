@@ -33,6 +33,7 @@ const History = {
       console.error('Error al obtener los datos del historial o registrar en la bitácora:', error);
       throw error;
     }
+  }
 
 };
 

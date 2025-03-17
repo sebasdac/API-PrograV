@@ -13,7 +13,7 @@ const Bitacora = {
         .input("fecha_bitacora", sql.Date, fecha)
         .input("id_usuarioi", sql.Int, id_usuarioi)
         .input("descripcion", sql.VarChar, descripcion)
-        .query("INSERT INTO Bitacora (fecha_bitacora, id_usuarioi, descripcion) VALUES (@fecha_bitacora, @id_usuarioi, @descripcion)");
+        .query("INSERT INTO Bitacora (fecha_bitacora, id_usuario, descripcion) VALUES (@fecha_bitacora, @id_usuarioi, @descripcion)");
 
       // Verificar cuántas filas fueron afectadas
       if (result.rowsAffected[0] > 0) {

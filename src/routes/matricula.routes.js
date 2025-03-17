@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 
-router.get("/listadoestudiantes/:cuatri/:periodo", matricula.getByCuatri);
+router.get("/listadoestudiantes/:cuatri/:periodo",authMiddleware, matricula.getByCuatri);
 
 
 module.exports = router;
